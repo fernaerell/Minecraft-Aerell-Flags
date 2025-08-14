@@ -2,13 +2,13 @@
     "format_version": "1.21.90",
     "minecraft:item": {
         "description": {
-            "identifier": "item.maf:one_piece_flag",
+            "identifier": "maf:one_piece_flag",
             "menu_category": {
                 "category": "items"
             }
         },
         "components": {
-            "minecraft:icon": "item.maf:one_piece_flag"
+            "minecraft:icon": "maf:one_piece_flag"
         }
     }
 }
