@@ -1,0 +1,12 @@
+{
+    "resource_pack_name": "§lAerell Flags",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "maf:indonesian_flag": {
+            "textures": "textures/items/indonesian_flag.png"
+        },
+        "maf:one_piece_flag": {
+            "textures": "textures/items/one_piece_flag.png"
+        }
+    }
+}
