@@ -1,0 +1,39 @@
+{
+    "format_version": "1.17.41",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "maf:one_piece_flag"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "BWB",
+            "CSC",
+            "BCB"
+        ],
+        "key": {
+            "B": "minecraft:bone",
+            "W": "minecraft:wheat",
+            "C": "minecraft:black_carpet",
+            "S": "minecraft:skeleton_skull"
+        },
+        "unlock": [
+            {
+                "item": "minecraft:bone"
+            },
+            {
+                "item": "minecraft:wheat"
+            },
+            {
+                "item": "minecraft:black_carpet"
+            },
+            {
+                "item": "minecraft:skeleton_skull"
+            }
+        ],
+        "result": {
+            "item": "maf:one_piece_flag"
+        }
+    }
+}

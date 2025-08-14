@@ -1,0 +1,31 @@
+{
+    "format_version": "1.17.41",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "maf:indonesian_flag"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "RRR",
+            "WWW",
+            "   "
+        ],
+        "key": {
+            "R": "minecraft:red_carpet",
+            "W": "minecraft:white_carpet"
+        },
+        "unlock": [
+            {
+                "item": "minecraft:red_carpet"
+            },
+            {
+                "item": "minecraft:white_carpet"
+            }
+        ],
+        "result": {
+            "item": "maf:indonesian_flag"
+        }
+    }
+}
