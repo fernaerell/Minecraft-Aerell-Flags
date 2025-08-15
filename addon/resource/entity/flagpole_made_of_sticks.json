@@ -37,8 +37,7 @@
             "spawn_egg": {
                 "texture": "maf:flagpole_made_of_sticks"
             },
-            "enable_attachables": false,
-            "hide_armor": false
+            "enable_attachables": false
         }
     }
 }
