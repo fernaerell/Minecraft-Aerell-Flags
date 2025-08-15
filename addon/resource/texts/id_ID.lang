@@ -3,3 +3,5 @@ pack.description=§c- Dibuat oleh Fern Aerell -\n§fMenambahkan bendera untuk me
 
 item.maf:indonesian_flag=Bendera Indonesia
 item.maf:one_piece_flag=Bendera One Piece
+
+item.spawn_egg.entity.maf:flagpole_made_of_sticks.name=Tiang bendera dari tongkat
