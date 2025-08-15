@@ -1,0 +1,9 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"maf:police_backsound": {
+			"category": "music",
+			"sounds": ["sounds/police_backsound"]
+		}
+	}
+}
