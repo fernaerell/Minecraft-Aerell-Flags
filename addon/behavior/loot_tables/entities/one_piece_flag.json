@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "maf:one_piece_flag",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

@@ -23,7 +23,7 @@
             },
             "part_visibility": [
                 {
-                    "*": "v.is_flag"
+                    "*": "v.state == 1 || v.state == 2"
                 }
             ],
             "geometry": "Geometry.default",
@@ -33,7 +33,7 @@
                 }
             ],
             "textures": [
-                "Array.flag[v.flag_index]"
+                "Array.flag[v.flag]"
             ]
         },
         "controller.render.maf.flagpole_made_of_sticks_second_flag": {
@@ -48,7 +48,7 @@
             "geometry": "Geometry.default",
             "part_visibility": [
                 {
-                    "*": "v.is_second_flag"
+                    "*": "v.state == 2"
                 }
             ],
             "materials": [
@@ -57,7 +57,7 @@
                 }
             ],
             "textures": [
-                "Array.second_flag[v.second_flag_index]"
+                "Array.second_flag[v.second_flag]"
             ]
         }
     }

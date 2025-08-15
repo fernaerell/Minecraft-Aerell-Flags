@@ -1,0 +1,37 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:item": {
+        "description": {
+            "identifier": "maf:flagpole_made_of_sticks",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "maf:flagpole_made_of_sticks",
+            "minecraft:entity_placer": {
+                "entity": "maf:flagpole_made_of_sticks",
+                "dispense_on": [
+                    "minecraft:dirt",
+                    "minecraft:grass",
+                    "minecraft:sand",
+                    "minecraft:red_sand",
+                    "minecraft:clay",
+                    "minecraft:podzol",
+                    "minecraft:mycelium",
+                    "minecraft:snow"
+                ],
+                "use_on": [
+                    "minecraft:dirt",
+                    "minecraft:grass",
+                    "minecraft:sand",
+                    "minecraft:red_sand",
+                    "minecraft:clay",
+                    "minecraft:podzol",
+                    "minecraft:mycelium",
+                    "minecraft:snow"
+                ]
+            }
+        }
+    }
+}

@@ -21,10 +21,9 @@
             },
             "scripts": {
                 "pre_animation": [
-                    "v.is_flag = query.property('maf:is_flag');",
-                    "v.is_second_flag = query.property('maf:is_second_flag');",
-                    "v.flag_index = query.property('maf:flag_index');",
-                    "v.second_flag_index = query.property('maf:second_flag_index');"
+                    "v.state = query.property('maf:state');",
+                    "v.flag = query.property('maf:flag');",
+                    "v.second_flag = query.property('maf:second_flag');"
                 ],
                 "animate": [
                     "idle"

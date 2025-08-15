@@ -3,5 +3,7 @@ pack.description=§c- Created by Fern Aerell -\n§fAdds flags to decorate your M
 
 item.maf:indonesian_flag=Indonesian flag
 item.maf:one_piece_flag=One Piece flag
+item.maf:flagpole_made_of_sticks=Flagpole made of sticks
 
-item.spawn_egg.entity.maf:flagpole_made_of_sticks.name=Flagpole made of sticks
+action.interact.put_up_a_flag=Put up a flag
+action.interact.put_up_a_second_flag=Put up a second flag

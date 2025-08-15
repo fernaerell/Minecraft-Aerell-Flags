@@ -3,34 +3,52 @@
     "minecraft:entity": {
         "description": {
             "identifier": "maf:flagpole_made_of_sticks",
-            "is_spawnable": true,
-            "is_summonable": true,
+            "is_spawnable": false,
+            "is_summonable": false,
+            "is_experimental": false,
             "properties": {
-                "maf:is_flag": {
-                    "type": "bool",
-                    "default": false,
-                    "client_sync": true
-                },
-                "maf:is_second_flag": {
-                    "type": "bool",
-                    "default": false,
-                    "client_sync": true
-                },
-                "maf:flag_index": {
+                "maf:state": {
                     "type": "int",
-                    "range": [0, 1],
+                    "range": [
+                        0,
+                        2
+                    ],
                     "default": 0,
                     "client_sync": true
                 },
-                "maf:second_flag_index": {
+                "maf:flag": {
                     "type": "int",
-                    "range": [0, 1],
+                    "range": [
+                        0,
+                        1
+                    ],
+                    "default": 0,
+                    "client_sync": true
+                },
+                "maf:second_flag": {
+                    "type": "int",
+                    "range": [
+                        0,
+                        1
+                    ],
                     "default": 0,
                     "client_sync": true
                 }
             }
         },
-        "component_groups": {},
+        "component_groups": {
+            "maf:destroy": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "time_down_event": {
+                        "event": "maf:instant_despawn"
+                    }
+                }
+            },
+            "maf:instant_despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
         "components": {
             "minecraft:type_family": {
                 "family": [
@@ -39,12 +57,16 @@
                 ]
             },
             "minecraft:collision_box": {
-                "width": 1,
-                "height": 90
+                "width": 0.1,
+                "height": 6
             },
             "minecraft:health": {
                 "value": 1,
-                "max": 1
+                "max": 1,
+                "min": 0
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1.0
             },
             "minecraft:hurt_on_condition": {
                 "damage_conditions": [
@@ -62,11 +84,233 @@
             },
             "minecraft:physics": {},
             "minecraft:pushable": {
-                "is_pushable": true,
+                "is_pushable": false,
                 "is_pushable_by_piston": true
             },
-            "minecraft:conditional_bandwidth_optimization": {}
+            "minecraft:loot": {
+                "table": "loot_tables/entities/flagpole_made_of_sticks.json"
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "maf:state",
+                                        "subject": "self",
+                                        "operator": "==",
+                                        "value": 0
+                                    }
+                                ],
+                                "any_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "domain": "hand",
+                                        "subject": "other",
+                                        "value": "maf:indonesian_flag"
+                                    }
+                                ]
+                            },
+                            "event": "maf:put_up_a_flag",
+                            "target": "self"
+                        },
+                        "interact_text": "action.interact.put_up_a_flag",
+                        "use_item": true
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "maf:state",
+                                        "subject": "self",
+                                        "operator": "==",
+                                        "value": 1
+                                    }
+                                ],
+                                "any_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "domain": "hand",
+                                        "subject": "other",
+                                        "value": "maf:one_piece_flag"
+                                    }
+                                ]
+                            },
+                            "event": "maf:put_up_a_second_flag",
+                            "target": "self"
+                        },
+                        "interact_text": "action.interact.put_up_a_second_flag",
+                        "use_item": true
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "maf:state",
+                                        "subject": "self",
+                                        "operator": "==",
+                                        "value": 0
+                                    }
+                                ]
+                            },
+                            "event": "maf:destroy",
+                            "target": "self"
+                        },
+                        "deals_damage": "no"
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "maf:state",
+                                        "subject": "self",
+                                        "operator": "==",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "event": "maf:take_off_the_flag",
+                            "target": "self"
+                        },
+                        "deals_damage": "no"
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "maf:state",
+                                        "subject": "self",
+                                        "operator": "==",
+                                        "value": 2
+                                    }
+                                ]
+                            },
+                            "event": "maf:take_off_the_second_flag",
+                            "target": "self"
+                        },
+                        "deals_damage": "no"
+                    }
+                ]
+            }
         },
-        "events": {}
+        "events": {
+            "maf:put_up_a_flag": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "maf:state": 1
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "domain": "hand",
+                            "subject": "other",
+                            "value": "maf:indonesian_flag"
+                        },
+                        "set_property": {
+                            "maf:flag": 0
+                        }
+                    }
+                ]
+            },
+            "maf:put_up_a_second_flag": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "maf:state": 2
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_equipment",
+                            "domain": "hand",
+                            "subject": "other",
+                            "value": "maf:one_piece_flag"
+                        },
+                        "set_property": {
+                            "maf:second_flag": 0
+                        }
+                    }
+                ]
+            },
+            "maf:take_off_the_flag": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "maf:state": 0
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "maf:flag",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": 0
+                        },
+                        "queue_command": {
+                            "target": "self",
+                            "command": "loot spawn ~ ~ ~ loot \"entities/indonesian_flag\""
+                        }
+                    }
+                ]
+            },
+            "maf:take_off_the_second_flag": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "maf:state": 1
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "int_property",
+                            "domain": "maf:second_flag",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": 0
+                        },
+                        "queue_command": {
+                            "target": "self",
+                            "command": "loot spawn ~ ~ ~ loot \"entities/one_piece_flag\""
+                        }
+                    }
+                ]
+            },
+            "maf:destroy": {
+                "queue_command": {
+                    "target": "self",
+                    "command": "loot spawn ~ ~ ~ loot \"entities/flagpole_made_of_sticks\""
+                },
+                "add": {
+                    "component_groups": [
+                        "maf:destroy"
+                    ]
+                }
+            },
+            "maf:instant_despawn": {
+                "add": {
+                    "component_groups": [
+                        "maf:instant_despawn"
+                    ]
+                }
+            }
+        }
     }
 }
