@@ -4,7 +4,7 @@
         "description": {
             "identifier": "maf:indonesian_police",
             "is_spawnable": false,
-            "is_summonable": false,
+            "is_summonable": true,
             "is_experimental": false,
             "properties": {
                 "maf:talk_about_one_piece_flag_state": {
@@ -159,6 +159,14 @@
                     "track_target": true
                 }
             },
+            "maf:reset_timeout": {
+                "minecraft:timer": {
+                    "time": 5,
+                    "time_down_event": {
+                        "event": "maf:reset"
+                    }
+                }
+            },
             "maf:leave": {
                 "minecraft:timer": {
                     "time": 0.1,
@@ -203,6 +211,10 @@
                 "inhale_time": 3.75,
                 "generates_bubbles": false
             },
+            "minecraft:nameable": {
+                "always_show": true,
+                "allow_name_tag_renaming": false
+            },
             "minecraft:physics": {
                 "push_towards_closest_space": true
             },
@@ -224,10 +236,10 @@
             "minecraft:floats_in_liquid": {},
             "minecraft:jump.static": {},
             "minecraft:damage_sensor": {
-				"triggers": {
-					"deals_damage": "no"
-				}
-			}
+                "triggers": {
+                    "deals_damage": "no"
+                }
+            }
         },
         "events": {
             "minecraft:entity_spawned": {
@@ -410,7 +422,8 @@
                         "add": {
                             "component_groups": [
                                 "maf:one_piece_flag_target",
-                                "maf:lowering_the_one_piece_flag"
+                                "maf:lowering_the_one_piece_flag",
+                                "maf:reset_timeout"
                             ]
                         }
                     }
@@ -420,7 +433,8 @@
                 "remove": {
                     "component_groups": [
                         "maf:one_piece_flag_target",
-                        "maf:lowering_the_one_piece_flag"
+                        "maf:lowering_the_one_piece_flag",
+                        "maf:reset_timeout"
                     ]
                 },
                 "add": {

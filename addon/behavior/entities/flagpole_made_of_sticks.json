@@ -47,6 +47,33 @@
             },
             "maf:instant_despawn": {
                 "minecraft:instant_despawn": {}
+            },
+            "maf:indonesian_police": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "random_time_choices": [
+                        {
+                            "weight": 25,
+                            "value": 5
+                        },
+                        {
+                            "weight": 25,
+                            "value": 10
+                        },
+                        {
+                            "weight": 25,
+                            "value": 20
+                        },
+                        {
+                            "weight": 25,
+                            "value": 30
+                        }
+                    ],
+                    "time_down_event": {
+                        "event": "maf:indonesian_police",
+                        "target": "self"
+                    }
+                }
             }
         },
         "components": {
@@ -243,6 +270,11 @@
                             "subject": "other",
                             "value": "maf:one_piece_flag"
                         },
+                        "add": {
+                            "component_groups": [
+                                "maf:indonesian_police"
+                            ]
+                        },
                         "set_property": {
                             "maf:second_flag": 0
                         }
@@ -329,6 +361,50 @@
                         "maf:instant_despawn"
                     ]
                 }
+            },
+            "maf:indonesian_police": {
+                "remove": {
+                    "component_groups": [
+                        "maf:indonesian_police"
+                    ]
+                },
+                "randomize": [
+                    {
+                        "weight": 25,
+                        "queue_command": {
+                            "target": "self",
+                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~7 ~1 ~8"
+                        }
+                    },
+                    {
+                        "weight": 25,
+                        "queue_command": {
+                            "target": "self",
+                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~7"
+                        }
+                    },
+                    {
+                        "weight": 25,
+                        "queue_command": {
+                            "target": "self",
+                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-8 ~1 ~-6"
+                        }
+                    },
+                    {
+                        "weight": 25,
+                        "queue_command": {
+                            "target": "self",
+                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~-7"
+                        }
+                    },
+                    {
+                        "weight": 25,
+                        "queue_command": {
+                            "target": "self",
+                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~8 ~1 ~6"
+                        }
+                    }
+                ]
             }
         }
     }
