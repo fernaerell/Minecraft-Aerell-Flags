@@ -280,15 +280,34 @@
                     },
                     {
                         "filters": {
-                            "test": "int_property",
-                            "domain": "maf:second_flag",
-                            "subject": "self",
-                            "operator": "==",
-                            "value": 0
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "maf:second_flag",
+                                    "subject": "self",
+                                    "operator": "==",
+                                    "value": 0
+                                }
+                            ]
                         },
                         "queue_command": {
                             "target": "self",
                             "command": "loot spawn ~ ~ ~ loot \"entities/one_piece_flag\""
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "police"
+                                }
+                            ]
+                        },
+                        "trigger": {
+                            "event": "maf:reset",
+                            "target": "other"
                         }
                     }
                 ]
