@@ -363,46 +363,60 @@
                 }
             },
             "maf:indonesian_police": {
-                "remove": {
-                    "component_groups": [
-                        "maf:indonesian_police"
-                    ]
-                },
-                "randomize": [
+                "sequence": [
                     {
-                        "weight": 25,
-                        "queue_command": {
-                            "target": "self",
-                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~7 ~1 ~8"
+                        "remove": {
+                            "component_groups": [
+                                "maf:indonesian_police"
+                            ]
                         }
                     },
                     {
-                        "weight": 25,
-                        "queue_command": {
-                            "target": "self",
-                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~7"
-                        }
-                    },
-                    {
-                        "weight": 25,
-                        "queue_command": {
-                            "target": "self",
-                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-8 ~1 ~-6"
-                        }
-                    },
-                    {
-                        "weight": 25,
-                        "queue_command": {
-                            "target": "self",
-                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~-7"
-                        }
-                    },
-                    {
-                        "weight": 25,
-                        "queue_command": {
-                            "target": "self",
-                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~8 ~1 ~6"
-                        }
+                        "randomize": [
+                            {
+                                "weight": 30,
+                                "randomize": [
+                                    {
+                                        "weight": 25,
+                                        "queue_command": {
+                                            "target": "self",
+                                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~7 ~1 ~8"
+                                        }
+                                    },
+                                    {
+                                        "weight": 25,
+                                        "queue_command": {
+                                            "target": "self",
+                                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~7"
+                                        }
+                                    },
+                                    {
+                                        "weight": 25,
+                                        "queue_command": {
+                                            "target": "self",
+                                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-8 ~1 ~-6"
+                                        }
+                                    },
+                                    {
+                                        "weight": 25,
+                                        "queue_command": {
+                                            "target": "self",
+                                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~-6 ~1 ~-7"
+                                        }
+                                    },
+                                    {
+                                        "weight": 25,
+                                        "queue_command": {
+                                            "target": "self",
+                                            "command": "summon maf:indonesian_police \"Petugas Polri\" ~8 ~1 ~6"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "weight": 50
+                            }
+                        ]
                     }
                 ]
             }
