@@ -1,0 +1,45 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "maf:flagpole_made_of_sticks",
+            "materials": {
+                "pole": "entity_alphatest",
+                "flag": "entity_alphatest",
+                "second_flag": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/flagpole_made_of_sticks.png",
+                "indonesian_flag": "textures/entity/indonesian_flag.png",
+                "one_piece_second_flag": "textures/entity/one_piece_second_flag.png"
+            },
+            "geometry": {
+                "default": "geometry.maf.flagpole_made_of_sticks"
+            },
+            "animations": {
+                "idle": "animation.maf.flagpole_made_of_sticks.idle"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "v.is_flag = query.property('maf:is_flag');",
+                    "v.is_second_flag = query.property('maf:is_second_flag');",
+                    "v.flag_index = query.property('maf:flag_index');",
+                    "v.second_flag_index = query.property('maf:second_flag_index');"
+                ],
+                "animate": [
+                    "idle"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.maf.flagpole_made_of_sticks_pole",
+                "controller.render.maf.flagpole_made_of_sticks_flag",
+                "controller.render.maf.flagpole_made_of_sticks_second_flag"
+            ],
+            "spawn_egg": {
+                "texture": "maf:flagpole_made_of_sticks"
+            },
+            "enable_attachables": false,
+            "hide_armor": false
+        }
+    }
+}

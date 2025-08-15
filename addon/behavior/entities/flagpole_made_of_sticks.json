@@ -1,0 +1,72 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "maf:flagpole_made_of_sticks",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "properties": {
+                "maf:is_flag": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                },
+                "maf:is_second_flag": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                },
+                "maf:flag_index": {
+                    "type": "int",
+                    "range": [0, 1],
+                    "default": 0,
+                    "client_sync": true
+                },
+                "maf:second_flag_index": {
+                    "type": "int",
+                    "range": [0, 1],
+                    "default": 0,
+                    "client_sync": true
+                }
+            }
+        },
+        "component_groups": {},
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "flagpole",
+                    "inanimate"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 1,
+                "height": 90
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {}
+    }
+}

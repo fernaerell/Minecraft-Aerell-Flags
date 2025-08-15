@@ -1,0 +1,64 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.maf.flagpole_made_of_sticks_pole": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.pole"
+                }
+            ],
+            "textures": [
+                "Texture.default"
+            ]
+        },
+        "controller.render.maf.flagpole_made_of_sticks_flag": {
+            "arrays": {
+                "textures": {
+                    "Array.flag": [
+                        "Texture.indonesian_flag",
+                        "Texture.indonesian_flag"
+                    ]
+                }
+            },
+            "part_visibility": [
+                {
+                    "*": "v.is_flag"
+                }
+            ],
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.flag"
+                }
+            ],
+            "textures": [
+                "Array.flag[v.flag_index]"
+            ]
+        },
+        "controller.render.maf.flagpole_made_of_sticks_second_flag": {
+            "arrays": {
+                "textures": {
+                    "Array.second_flag": [
+                        "Texture.one_piece_second_flag",
+                        "Texture.one_piece_second_flag"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "part_visibility": [
+                {
+                    "*": "v.is_second_flag"
+                }
+            ],
+            "materials": [
+                {
+                    "*": "Material.second_flag"
+                }
+            ],
+            "textures": [
+                "Array.second_flag[v.second_flag_index]"
+            ]
+        }
+    }
+}
