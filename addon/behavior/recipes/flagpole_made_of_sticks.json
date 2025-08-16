@@ -21,8 +21,7 @@
             }
         ],
         "result": {
-            "item": "minecraft:spawn_egg",
-            "data": "q.get_actor_info_id('maf:flagpole_made_of_sticks')"
+            "item": "maf:flagpole_made_of_sticks"
         }
     }
 }
